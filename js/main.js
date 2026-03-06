@@ -61,7 +61,7 @@ function openModal(id) {
   }
   if (id === 'prikolModal') {
     document.getElementById('prikolContainer').innerHTML =
-      '<iframe src="https://vk.com/video_ext.php?oid=-229336623&id=456239085&hd=2" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+      '<iframe src="https://rutube.ru/play/embed/596305dc141bef631b36c0a0089e9d62/" allow="autoplay; fullscreen" allowfullscreen></iframe>';
   }
 }
 
