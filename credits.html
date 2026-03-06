@@ -85,17 +85,18 @@ body::after {
     width: 90%;
     max-width: 500px;
     text-align: center;
-    padding: 100vh 0;
+    padding: 24px 0 40px;
 }
 
 .credits-wrapper.animating .credits-scroll {
     position: absolute;
-    animation: scrollUp 28s linear forwards;
+    padding-top: 20px;
+    animation: scrollUp 22s linear forwards;
 }
 
 @keyframes scrollUp {
     0% { top: 100vh; }
-    100% { top: -250vh; }
+    100% { top: -200vh; }
 }
 
 /* Typography */
@@ -253,7 +254,7 @@ body::after {
         <div class="credits-divider">&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
 
         <div class="credits-section">
-            <div class="credits-label">Разработка и дизайн</div>
+            <div class="credits-label">Разработчики</div>
             <div class="credits-avatar" id="devAvatar">?</div>
             <div class="credits-name">Евгений Аверьянов</div>
             <div class="credits-text">Web Developer</div>
