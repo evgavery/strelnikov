@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credits — danilastrelnikov.ru</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+body.scrollable {
+    overflow-y: auto;
+    height: auto;
+}
+
+/* Starfield */
+.stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+}
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 2s ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+/* CRT effect */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.15) 0px,
+        rgba(0,0,0,0.15) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Credits scroll container — animation mode */
+.credits-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.credits-wrapper.animating {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.credits-scroll {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    padding: 100vh 0;
+}
+
+.credits-wrapper.animating .credits-scroll {
+    position: absolute;
+    animation: scrollUp 28s linear forwards;
+}
+
+@keyframes scrollUp {
+    0% { top: 100vh; }
+    100% { top: -250vh; }
+}
+
+/* Typography */
+.credits-heading {
+    color: #f0d060;
+    font-size: 14px;
+    margin-bottom: 48px;
+    line-height: 2;
+}
+
+.credits-section {
+    margin-bottom: 56px;
+}
+
+.credits-label {
+    color: #8090a0;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.credits-name {
+    color: #f0d060;
+    font-size: 12px;
+    line-height: 2;
+}
+
+.credits-text {
+    color: #c0c0c0;
+    font-size: 9px;
+    line-height: 2.4;
+}
+
+.credits-divider {
+    color: #404040;
+    font-size: 8px;
+    margin: 40px 0;
+    letter-spacing: 4px;
+}
+
+/* Avatar placeholder */
+.credits-avatar {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 24px;
+    border: 3px solid #f0d060;
+    image-rendering: pixelated;
+    background: #181818;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #404040;
+    font-size: 32px;
+}
+
+.credits-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+/* Contact button */
+.credits-contact-btn {
+    display: inline-block;
+    background: #2a2a2a;
+    border: 2px solid #f0d060;
+    color: #f0d060;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    padding: 12px 24px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+}
+.credits-contact-btn:hover {
+    background: #f0d060;
+    color: #000;
+}
+
+/* Back link */
+.credits-back {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    color: #808080;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    text-decoration: none;
+    z-index: 100;
+    padding: 8px;
+}
+.credits-back:hover {
+    color: #f0d060;
+}
+
+/* Skip button */
+.credits-skip {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    color: #f0d060;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    background: rgba(0,0,0,0.7);
+    border: 2px solid #f0d060;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 100;
+    animation: skipPulse 2s ease-in-out infinite;
+}
+.credits-skip:hover {
+    background: #f0d060;
+    color: #000;
+}
+@keyframes skipPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+.credits-skip.hidden {
+    display: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .credits-heading { font-size: 11px; }
+    .credits-name { font-size: 10px; }
+    .credits-text { font-size: 8px; }
+    .credits-label { font-size: 7px; }
+    .credits-contact-btn { font-size: 8px; padding: 10px 16px; }
+    .credits-scroll { width: 95%; }
+    .credits-skip { font-size: 8px; bottom: 16px; right: 16px; }
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="credits-back">&larr; Назад</a>
+<button class="credits-skip" id="skipBtn" onclick="skipToEnd()">Пропустить &raquo;</button>
+
+<!-- Starfield generated by JS -->
+<div class="stars" id="stars"></div>
+
+<div class="credits-wrapper animating" id="creditsWrapper">
+    <div class="credits-scroll" id="creditsScroll">
+
+        <div class="credits-heading">
+            &#9733; ПОЗДРАВЛЯЕМ &#9733;<br>
+            ВЫ НАШЛИ<br>
+            СЕКРЕТНЫЕ ТИТРЫ
+        </div>
+
+        <div class="credits-divider">&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
+
+        <div class="credits-section">
+            <div class="credits-label">Разработка и дизайн</div>
+            <div class="credits-avatar" id="devAvatar">?</div>
+            <div class="credits-name">Евгений Аверьянов</div>
+            <div class="credits-text">Web Developer</div>
+        </div>
+
+        <div class="credits-divider">&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
+
+        <div class="credits-section">
+            <div class="credits-label">Создано с помощью</div>
+            <div class="credits-text">
+                HTML / CSS / JavaScript<br>
+                Ни один фреймворк не пострадал
+            </div>
+        </div>
+
+        <div class="credits-section">
+            <div class="credits-label">Хостинг</div>
+            <div class="credits-text">GitHub Pages</div>
+        </div>
+
+        <div class="credits-section">
+            <div class="credits-label">Особая благодарность</div>
+            <div class="credits-text">
+                Шрифт Press Start 2P<br>
+                Кофе и бессонные ночи<br>
+                Claude AI &#8212; напарник по коду
+            </div>
+        </div>
+
+        <div class="credits-divider">&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
+
+        <div class="credits-section">
+            <div class="credits-label">&#9733; Связаться с разработчиком &#9733;</div>
+            <a class="credits-contact-btn" id="devContact" href="#">&#9733;&#9733;&#9733;</a>
+        </div>
+
+        <div class="credits-divider">&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</div>
+
+        <div class="credits-section">
+            <div class="credits-text" style="color:#404040;">
+                &copy; 2026
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+/* Starfield */
+(function() {
+    var stars = document.getElementById('stars');
+    for (var i = 0; i < 80; i++) {
+        var star = document.createElement('div');
+        star.className = 'star';
+        var size = Math.random() * 2 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = (Math.random() * 3) + 's';
+        star.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+        stars.appendChild(star);
+    }
+})();
+
+/* Email obfuscation */
+(function() {
+    var u = 'evgavery';
+    var d = 'yandex.ru';
+    var link = document.getElementById('devContact');
+    var addr = u + '@' + d;
+    link.href = 'mai' + 'lto:' + addr;
+    link.textContent = addr;
+})();
+
+/* Skip / end animation */
+var wrapper = document.getElementById('creditsWrapper');
+var scroll = document.getElementById('creditsScroll');
+var skipBtn = document.getElementById('skipBtn');
+
+scroll.addEventListener('animationend', function() {
+    endCredits();
+});
+
+function skipToEnd() {
+    endCredits();
+}
+
+function endCredits() {
+    /* Stop animation, make page normally scrollable */
+    wrapper.classList.remove('animating');
+    document.body.classList.add('scrollable');
+    skipBtn.classList.add('hidden');
+    /* Scroll to top */
+    window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>

@@ -11,6 +11,9 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 RewriteRule ^policy$ policy.html [NC]
 RewriteRule ^policy/$ policy.html [NC]
 
+RewriteRule ^credits$ credits.html [NC]
+RewriteRule ^credits/$ credits.html [NC]
+
 # ============================================
 # GZIP COMPRESSION
 # ============================================

@@ -96,7 +96,7 @@ document.getElementById('tvFrame').addEventListener('click', function() { openMo
   var back = document.getElementById('tvImageBack');
   var canvas = document.getElementById('tvCanvas');
   var ctx = canvas.getContext('2d');
-  var images = ['images/che_1.jpg', 'images/che_2.jpg'];
+  var images = ['images/che_1.webp', 'images/che_2.webp'];
   var currentIndex = 0;
   var SHOW_DURATION = 4000;
 
@@ -253,6 +253,24 @@ document.getElementById('reqCopyBtn').addEventListener('click', function() {
     }, 2000);
   });
 });
+
+/* ---- CONTACT OBFUSCATION ---- */
+(function() {
+  var ep = ['danilastrelnikov', 'gmail.com'];
+  var pp = ['+7', '915', '182', '42', '99'];
+  var emailLink = document.getElementById('contactEmailLink');
+  var phoneLink = document.getElementById('contactPhoneLink');
+  if (emailLink) {
+    var addr = ep[0] + '@' + ep[1];
+    emailLink.href = 'mai' + 'lto:' + addr;
+    emailLink.textContent = addr;
+  }
+  if (phoneLink) {
+    var num = pp.join('');
+    phoneLink.href = 'te' + 'l:' + num;
+    phoneLink.textContent = pp[0] + ' ' + pp[1] + ' ' + pp[2] + ' ' + pp[3] + ' ' + pp[4];
+  }
+})();
 
 /* ---- FORMS ---- */
 function submitContactForm() {
