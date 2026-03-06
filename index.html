@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ведущий Данила Стрельников</title>
+    <meta name="description" content="Данила Стрельников — ведущий мероприятий. Супер удар, красивые брови, рост 182.">
+    <meta property="og:url" content="https://danilastrelnikov.ru">
+    <meta property="og:title" content="Ведущий Данила Стрельников">
+    <meta property="og:description" content="Данила Стрельников — ведущий мероприятий">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://danilastrelnikov.ru">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ========================================
+     LOADING SCREEN
+     ======================================== -->
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-text">LOADING...</div>
+    <div class="loading-bar-bg">
+        <div class="loading-bar-fill" id="loadingBar"></div>
+    </div>
+</div>
+
+<!-- ========================================
+     HUD / HEADER
+     ======================================== -->
+<header class="hud" id="hud">
+    <div class="hud-left">
+        <div class="hud-coins">
+            <img class="hud-coin-icon" src="images/coin.svg" alt="">
+            <span>x <span id="coinScore">0000</span></span>
+        </div>
+    </div>
+    <div class="hud-right">
+        <div class="hud-heart" id="heartBtn" title="???"></div>
+    </div>
+</header>
+
+<!-- ========================================
+     HERO — WORLD 1-1
+     ======================================== -->
+<section class="hero" id="hero" data-world="1-1">
+    <div class="container hero-content">
+        <div class="hero-left">
+            <h1 class="hero-title">Ведущий<br>Данила<br>Стрельников</h1>
+            <div class="sf-stats">
+                <div class="sf-stat-row">
+                    <span class="sf-stat-label">ЮМОР</span>
+                    <div class="sf-stat-track">
+                        <div class="sf-stat-fill" style="--bar-width:80%;--bar-delay:0.3s"></div>
+                    </div>
+                </div>
+                <div class="sf-stat-row">
+                    <span class="sf-stat-label">СТИЛЬ</span>
+                    <div class="sf-stat-track">
+                        <div class="sf-stat-fill" style="--bar-width:93%;--bar-delay:0.6s"></div>
+                    </div>
+                </div>
+                <div class="sf-stat-row">
+                    <span class="sf-stat-label">ХОРЕОГРАФИЯ</span>
+                    <div class="sf-stat-track">
+                        <div class="sf-stat-fill" style="--bar-width:15%;--bar-delay:0.9s"></div>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="start-btn">НАЖМИТЕ СТАРТ</a>
+        </div>
+
+        <div class="hero-right">
+            <div class="hero-tv-area">
+                <div class="tv-frame" id="tvFrame" title="Смотреть видео про Данилу">
+                    <div class="tv-screen" id="tvScreen">
+                        <img src="images/che_2.jpg" alt="Данила Стрельников пиксель-арт" class="tv-img-back" id="tvImageBack">
+                        <img src="images/che_1.jpg" alt="Данила Стрельников" class="tv-img-front" id="tvImageFront">
+                        <canvas class="tv-canvas" id="tvCanvas"></canvas>
+                        <div class="tv-play">
+                            <div class="tv-play-btn"></div>
+                        </div>
+                    </div>
+                    <div class="tv-label">НАЖМИ ДЛЯ ВИДЕО</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- World 1-2 label -->
+<div style="background:#000; text-align:center; padding: 32px 0 0;">
+    <span class="world-label-plain">WORLD 1-2</span>
+</div>
+
+<!-- ========================================
+     ABOUT — UNDERGROUND RPG DIALOGUE
+     ======================================== -->
+<section class="about" id="about" data-world="1-2">
+    <div class="about-scene reveal">
+        <!-- Dialogue box -->
+        <div class="rpg-dialogue" id="rpgDialogue">
+            <div class="rpg-dialogue-name">ДАНИЛА</div>
+            <div class="rpg-dialogue-box">
+                <div class="rpg-dialogue-text" id="rpgText"></div>
+            </div>
+            <div class="rpg-dialogue-controls">
+                <button class="rpg-btn rpg-btn-prev" id="rpgPrev" aria-label="Назад">&#9664;</button>
+                <span class="rpg-dialogue-counter" id="rpgCounter">1/10</span>
+                <button class="rpg-btn rpg-btn-next" id="rpgNext" aria-label="Далее">&#9654;</button>
+            </div>
+            <!-- CTA after last message -->
+            <div class="rpg-dialogue-cta" id="rpgCta">
+                <a href="#contact" class="rpg-cta-btn">СВЯЗАТЬСЯ</a>
+            </div>
+        </div>
+        <!-- Character climbing out of pipe, coins on sides -->
+        <div class="about-character-wrap">
+            <div class="about-coins-side about-coins-left">
+                <div class="deco-coins-grid">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="1">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="2">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="3">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="4">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="5">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="6">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="18">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="19">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="20">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="35">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="36">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="37">
+                </div>
+            </div>
+            <div class="about-character-pipe">
+                <div class="about-character" id="aboutCharacter">
+                    <img src="images/hero_host.png" alt="Данила Стрельников">
+                </div>
+                <div class="about-pipe">
+                    <img src="images/pipe.svg" alt="" class="about-pipe-img">
+                </div>
+            </div>
+            <div class="about-coins-side about-coins-right">
+                <div class="deco-coins-grid">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="21">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="22">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="23">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="24">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="25">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="26">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="27">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="28">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="29">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="38">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="39">
+                    <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="40">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ground separator before Achievements -->
+<div style="background:#000;">
+    <div class="ground-row ground-row-about"></div>
+</div>
+
+<!-- ========================================
+     ACHIEVEMENTS — QUESTION BLOCKS
+     ======================================== -->
+<section class="achievements" id="achievements" data-world="1-3">
+    <div class="container achievements-inner">
+        <div class="achievements-title reveal">Ачивки</div>
+        <div class="achievements-grid">
+            <div class="qblock-wrap reveal">
+                <div class="qblock" data-achievement="Топ-10 рейтинга ведущих топ-100" data-icon="&#127942;">
+                    <div class="qblock-face">
+                        <span class="qblock-q">?</span>
+                    </div>
+                    <div class="qblock-coin-fx">
+                        <img src="images/coin.svg" alt="" class="qblock-coin-img">
+                    </div>
+                </div>
+                <div class="qblock-label">Топ-10 рейтинга ведущих топ-100</div>
+            </div>
+            <div class="qblock-wrap reveal">
+                <div class="qblock" data-achievement="Победитель True Showman Battle" data-icon="&#9876;">
+                    <div class="qblock-face">
+                        <span class="qblock-q">?</span>
+                    </div>
+                    <div class="qblock-coin-fx">
+                        <img src="images/coin.svg" alt="" class="qblock-coin-img">
+                    </div>
+                </div>
+                <div class="qblock-label">Победитель True Showman Battle</div>
+            </div>
+            <div class="qblock-wrap reveal">
+                <div class="qblock" data-achievement="Победитель Чемпионата района по CS 1.6 (2005), да мне 36 лет" data-icon="&#127918;">
+                    <div class="qblock-face">
+                        <span class="qblock-q">?</span>
+                    </div>
+                    <div class="qblock-coin-fx">
+                        <img src="images/coin.svg" alt="" class="qblock-coin-img">
+                    </div>
+                </div>
+                <div class="qblock-label">Победитель Чемпионата района по CS 1.6 (2005), да мне 36 лет</div>
+            </div>
+            <div class="qblock-wrap reveal">
+                <div class="qblock" data-achievement="Победитель «Пригласите на свадьбу» — Россия 1" data-icon="&#128250;">
+                    <div class="qblock-face">
+                        <span class="qblock-q">?</span>
+                    </div>
+                    <div class="qblock-coin-fx">
+                        <img src="images/coin.svg" alt="" class="qblock-coin-img">
+                    </div>
+                </div>
+                <div class="qblock-label">Победитель «Пригласите на свадьбу» — Россия 1</div>
+            </div>
+            <div class="qblock-wrap reveal">
+                <div class="qblock" data-achievement="Участник Камеди Батл на ТНТ" data-icon="&#127908;">
+                    <div class="qblock-face">
+                        <span class="qblock-q">?</span>
+                    </div>
+                    <div class="qblock-coin-fx">
+                        <img src="images/coin.svg" alt="" class="qblock-coin-img">
+                    </div>
+                </div>
+                <div class="qblock-label">Участник Камеди Батл на ТНТ</div>
+            </div>
+            <div class="qblock-wrap reveal">
+                <div class="qblock" data-achievement="3 года КВН на Первом в Сборной Алтайского края" data-icon="&#127911;">
+                    <div class="qblock-face">
+                        <span class="qblock-q">?</span>
+                    </div>
+                    <div class="qblock-coin-fx">
+                        <img src="images/coin.svg" alt="" class="qblock-coin-img">
+                    </div>
+                </div>
+                <div class="qblock-label">3 года КВН на Первом в Сборной Алтайского края</div>
+            </div>
+            <div class="qblock-wrap reveal">
+                <div class="qblock" data-achievement="500+ мероприятий и голос всё ещё на месте" data-icon="&#127881;">
+                    <div class="qblock-face">
+                        <span class="qblock-q">?</span>
+                    </div>
+                    <div class="qblock-coin-fx">
+                        <img src="images/coin.svg" alt="" class="qblock-coin-img">
+                    </div>
+                </div>
+                <div class="qblock-label">500+ мероприятий и голос всё ещё на месте</div>
+            </div>
+            <div class="qblock-wrap reveal">
+                <div class="qblock qblock-secret" data-achievement="Секретный блок! Ты точно всё проверяешь — идеальный гость" data-icon="&#11088;" data-points="500">
+                    <div class="qblock-face">
+                        <span class="qblock-q">&nbsp;</span>
+                    </div>
+                    <div class="qblock-coin-fx">
+                        <img src="images/coin.svg" alt="" class="qblock-coin-img">
+                    </div>
+                </div>
+                <div class="qblock-label">Секретный блок! Ты точно всё проверяешь — идеальный гость</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================================
+     FILES SECTION
+     ======================================== -->
+<section class="files-section" id="files" data-world="1-4">
+    <div class="container files-inner">
+        <div class="files-grid reveal">
+            <div class="folder" data-modal="prikolModal">
+                <div class="folder-icon"></div>
+                <div class="folder-label">приколы 2009</div>
+            </div>
+            <div class="folder" data-modal="galleryModal">
+                <div class="folder-icon"></div>
+                <div class="folder-label">фотки с мероприятий</div>
+            </div>
+            <div class="folder" id="systemFolder">
+                <div class="folder-icon system"></div>
+                <div class="folder-label">System Files</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- World 2-1 + coins before clients -->
+<div style="background:#000;">
+    <div class="ground-row"></div>
+    <div style="text-align:center; padding: 32px 0 0;">
+        <span class="world-label-plain">WORLD 2-1</span>
+    </div>
+    <div class="deco-coins-row" style="padding:24px 0 0;">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="7">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="8">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="9">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="10">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="11">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="12">
+    </div>
+    <div class="deco-coins-row" style="padding:16px 0 0;">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="41">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="42">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="43">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="44">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="45">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="46">
+    </div>
+</div>
+
+<!-- ========================================
+     CLIENTS — NES GAME SELECT MENU
+     ======================================== -->
+<section class="clients-section" id="clients" data-world="2-1">
+    <div class="container clients-inner">
+        <div class="clients-title reveal">Заказчики</div>
+        <div class="clients-list reveal">
+            <div class="client-row"><span class="client-num">0001</span><span class="client-name">Pepsico</span></div>
+            <div class="client-row"><span class="client-num">0002</span><span
+                    class="client-name">Cross technologies</span></div>
+            <div class="client-row"><span class="client-num">0003</span><span class="client-name">Крок</span></div>
+            <div class="client-row"><span class="client-num">0004</span><span class="client-name">P&G</span></div>
+            <div class="client-row"><span class="client-num">0005</span><span class="client-name">Mamba</span></div>
+            <div class="client-row"><span class="client-num">0006</span><span class="client-name">Самокат</span></div>
+            <div class="client-row"><span class="client-num">0007</span><span class="client-name">Heinz</span></div>
+            <div class="client-row"><span class="client-num">0008</span><span class="client-name">Royal Canin</span>
+            </div>
+            <div class="client-row"><span class="client-num">0009</span><span class="client-name">ПИК</span></div>
+            <div class="client-row"><span class="client-num">0010</span><span class="client-name">Visiology</span></div>
+            <div class="client-row"><span class="client-num">0011</span><span class="client-name">SPLAT</span></div>
+            <div class="client-row"><span class="client-num">0012</span><span class="client-name">Леруа Мерлен</span>
+            </div>
+            <div class="client-row"><span class="client-num">0013</span><span class="client-name">Муз. школа им. Чайковского</span>
+            </div>
+            <div class="client-row"><span class="client-num">0014</span><span class="client-name">Т-Банк</span></div>
+            <div class="client-row"><span class="client-num">0015</span><span class="client-name">Монделиз</span></div>
+            <div class="client-row"><span class="client-num">0016</span><span class="client-name">ГК "Рики"</span></div>
+            <div class="client-row"><span class="client-num">0017</span><span class="client-name">АвиаСейлс</span></div>
+            <div class="client-row"><span class="client-num">0018</span><span
+                    class="client-name">АльфаСтрахование</span></div>
+            <div class="client-row"><span class="client-num">0019</span><span class="client-name">Сбер data</span></div>
+            <div class="client-row"><span class="client-num">0020</span><span class="client-name">ВК авторы</span></div>
+            <div class="client-row"><span class="client-num">0021</span><span class="client-name">Кейт и Лео</span>
+            </div>
+            <div class="client-row"><span class="client-num">0022</span><span class="client-name">DD Для двоих</span>
+            </div>
+            <div class="client-row"><span class="client-num">0023</span><span class="client-name">SVET</span></div>
+            <div class="client-row"><span class="client-num">0024</span><span class="client-name">Гордеева вединг</span>
+            </div>
+            <div class="client-row"><span class="client-num">0025</span><span class="client-name">Воздух</span></div>
+            <div class="client-row"><span class="client-num">0026</span><span class="client-name">Пломбир</span></div>
+            <div class="client-row"><span class="client-num">0027</span><span class="client-name">Soulmate</span></div>
+            <div class="client-row"><span class="client-num">0028</span><span
+                    class="client-name">Ольга Купцова вединг</span></div>
+            <div class="client-row"><span class="client-num">0029</span><span
+                    class="client-name">bella rosa agency</span></div>
+            <div class="client-row"><span class="client-num">0030</span><span class="client-name">DG events</span></div>
+            <div class="client-row"><span class="client-num">0031</span><span class="client-name">Apriori Married</span>
+            </div>
+            <div class="client-row"><span class="client-num">0032</span><span class="client-name">Levelove</span></div>
+            <div class="client-row"><span class="client-num">0033</span><span class="client-name">Fantasy</span></div>
+            <div class="client-row"><span class="client-num">0034</span><span class="client-name">Buzenkova_wedding&event</span>
+            </div>
+            <div class="client-row"><span class="client-num">0035</span><span class="client-name">Feerique Event&Emotions</span>
+            </div>
+            <div class="client-row"><span class="client-num">0036</span><span class="client-name">It's a match!</span>
+            </div>
+            <div class="client-row"><span class="client-num">0037</span><span class="client-name">DARIA KRAVTSOVA wedding & event</span>
+            </div>
+            <div class="client-row"><span class="client-num">0038</span><span class="client-name">wedding people</span>
+            </div>
+            <div class="client-row"><span class="client-num">0039</span><span
+                    class="client-name">Russian Wedding Group</span></div>
+            <div class="client-row"><span class="client-num">0040</span><span class="client-name">Сахарок</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- Coins after clients -->
+<div style="background:#000; padding-bottom:48px;">
+    <div class="deco-coins-row" style="padding:24px 0 0;">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="57">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="58">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="59">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="60">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="61">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="62">
+    </div>
+    <div class="deco-coins-row" style="padding:16px 0 0;">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="63">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="64">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="65">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="66">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="67">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="68">
+    </div>
+</div>
+
+<!-- ========================================
+     CONTACT SECTION
+     ======================================== -->
+<section class="contact-section" id="contact" data-world="FINAL">
+    <div class="container contact-inner">
+        <div class="world-card-inline reveal">
+            <div class="world-card-name">FINAL LEVEL</div>
+        </div>
+        <div class="contact-title reveal">Контакты</div>
+
+        <div class="contact-info reveal">
+            <div class="contact-line">Телефон: <a href="tel:+79151824299">+7 915 182 42 99</a></div>
+            <div class="contact-line">Email: <a href="mailto:danilastrelnikov@gmail.com">danilastrelnikov@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="contact-form-inline reveal" id="contactFormWrapper">
+            <form id="contactForm" onsubmit="return false;">
+                <input type="tel" class="pixel-input" placeholder="Ваш телефон" id="contactPhone" required>
+                <label class="pixel-checkbox">
+                    <input type="checkbox" id="contactConsent" required>
+                    <span>Я согласен с <a href="/policy"
+                                          target="_blank">политикой обработки персональных данных</a></span>
+                </label>
+                <button type="submit" class="pixel-btn" onclick="submitContactForm()">Отправить</button>
+            </form>
+            <div class="form-success" id="contactSuccess">
+                <div class="form-success-icon">&#9733;</div>
+                <div class="form-success-text">Спасибо!<br>Я свяжусь с вами<br>в ближайшее время</div>
+            </div>
+        </div>
+
+        <!-- Requisites -->
+        <div class="requisites reveal">
+            <div class="requisites-title">Реквизиты</div>
+            <div class="requisites-block">
+                <p class="req-name">ИП СТРЕЛЬНИКОВ ДАНИЛА АЛЕКСАНДРОВИЧ</p>
+                <p>
+                    Юридический адрес: 656054, Россия, Алтайский край, г. Барнаул, ул. Антона Петрова, д. 228, кв.
+                    108<br>
+                    ИНН: 222330639703<br>
+                    ОГРН: 320222500040626<br><br>
+                    Расчетный счет: 40802810700001541955<br>
+                    Банк: АО «ТИНЬКОФФ БАНК»<br>
+                    ИНН банка: 7710140679<br>
+                    БИК банка: 044525974<br>
+                    Корр. счет: 30101810145250000974<br>
+                    Юр. адрес банка: Москва, 123060, 1-й Волоколамский проезд, д. 10, стр. 1
+                </p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ========================================
+     GAME OVER SECTION
+     ======================================== -->
+<section class="game-over" id="gameover">
+    <div class="game-over-title reveal">GAME OVER</div>
+    <a href="#hero" class="game-over-restart">CONTINUE? 9...8...7...</a>
+
+    <div class="deco-coins-row" style="padding:24px 0 0;">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="47">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="48">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="49">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="50">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="51">
+    </div>
+    <div class="deco-coins-row" style="padding:16px 0 0;">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="52">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="53">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="54">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="55">
+        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="56">
+    </div>
+
+    <div class="game-over-bottom">
+        <div class="speech-bubble reveal">Спасибо, что дошёл до конца! Если хочешь крутое мероприятие — ты знаешь к кому
+            обращаться.
+        </div>
+        <div class="game-over-character">
+            <img src="images/hero_dance.png" alt="Данила">
+        </div>
+        <div class="game-over-pipes">
+            <div class="pipe-deco">
+                <img class="piranha-img" src="images/piranha.svg" alt="" style="animation-delay:-1s;">
+                <img class="pipe-img" src="images/pipe.svg" alt="">
+            </div>
+            <div class="pipe-deco">
+                <img class="piranha-img" src="images/piranha.svg" alt="" style="animation-delay:-6.5s;">
+                <img class="pipe-img" src="images/pipe.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="game-over-ground-bar"></div>
+</section>
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+<footer class="footer">
+    <p>&copy; Данила Стрельников &bull; <a href="/policy">Политика конфиденциальности</a></p>
+</footer>
+
+<!-- ========================================
+     MODALS
+     ======================================== -->
+
+<!-- Video (Kinescope) -->
+<div class="modal-overlay" id="videoModal">
+    <div class="modal-box" style="width:90vw; max-width:860px;">
+        <button class="modal-close" onclick="closeModal('videoModal')">&times;</button>
+        <div class="modal-content" style="padding:8px;">
+            <div class="video-container" id="videoContainer"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Prikol (VK Video) -->
+<div class="modal-overlay" id="prikolModal">
+    <div class="modal-box" style="width:90vw; max-width:860px;">
+        <button class="modal-close" onclick="closeModal('prikolModal')">&times;</button>
+        <div class="modal-content" style="padding:8px;">
+            <div class="modal-title">приколы 2009</div>
+            <div class="video-container" id="prikolContainer"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Gallery -->
+<div class="modal-overlay gallery-modal" id="galleryModal">
+    <div class="modal-box" style="width:90vw; max-width:1000px;">
+        <button class="modal-close" onclick="closeModal('galleryModal')">&times;</button>
+        <div class="modal-content" style="padding:8px 8px 0;">
+            <div class="gallery-viewport">
+                <div class="gallery-track" id="galleryTrack">
+                    <div class="gallery-slide"><img src="images/gallery/gallery-1.png" alt="Фото 1" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-2.png" alt="Фото 2" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-3.png" alt="Фото 3" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-4.png" alt="Фото 4" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-5.png" alt="Фото 5" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-6.png" alt="Фото 6" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-7.png" alt="Фото 7" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-8.png" alt="Фото 8" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-9.png" alt="Фото 9" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-10.png" alt="Фото 10" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-11.png" alt="Фото 11" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-12.png" alt="Фото 12" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-13.png" alt="Фото 13" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-14.png" alt="Фото 14" loading="lazy"></div>
+                    <div class="gallery-slide"><img src="images/gallery/gallery-15.png" alt="Фото 15" loading="lazy"></div>
+                </div>
+                <button class="gallery-nav gallery-prev" onclick="galleryMove(-1)">&#9664;</button>
+                <button class="gallery-nav gallery-next" onclick="galleryMove(1)">&#9654;</button>
+            </div>
+            <div class="gallery-counter" id="galleryCounter">1 / 15</div>
+        </div>
+    </div>
+</div>
+
+<!-- Prize (3% discount) -->
+<div class="modal-overlay prize-modal" id="prizeModal">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('prizeModal')">&times;</button>
+        <div class="modal-content" id="prizeFormWrapper">
+            <div class="prize-star">&#9733;</div>
+            <div class="prize-title">Ура! Вы собрали<br>все монетки и выиграли<br>3% скидку на мероприятие!</div>
+            <div class="prize-desc">Напишите свою почту<br>и я вышлю вам сертификат</div>
+            <form class="prize-form" id="prizeForm" onsubmit="return false;">
+                <input type="email" class="pixel-input" placeholder="Ваш Email" id="prizeEmail" required
+                       style="max-width:300px; margin:0 auto 16px;">
+                <br>
+                <button type="submit" class="pixel-btn" onclick="submitPrizeForm()"
+                        style="background:var(--coin-gold); border-color:var(--coin-dark); color:#000;">Отправить
+                </button>
+            </form>
+            <div class="form-success" id="prizeSuccess">
+                <div class="form-success-icon">&#127775;</div>
+                <div class="form-success-text">Отлично!<br>Проверьте почту —<br>сертификат уже летит!</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quote / Love popup (heart icon) -->
+<div class="modal-overlay quote-modal" id="quoteModal">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('quoteModal')">&times;</button>
+        <div class="modal-content">
+            <div class="quote-text">«Любовь умирает первой,<br>ненависть бессмертна»</div>
+            <div class="quote-author">— Баста</div>
+        </div>
+    </div>
+</div>
+
+<!-- Blue Screen -->
+<div class="bluescreen-overlay" id="bluescreen" onclick="closeBSOD()">
+    <div class="bsod-title">SYSTEM ERROR</div>
+    <div class="bsod-text">
+        Ты что-то нажал(а)<br>
+        и всё исчезло.<br><br>
+        Но не переживай —<br>
+        это всего лишь пасхалка.
+    </div>
+    <div class="bsod-hint">НАЖМИ КУДА-НИБУДЬ ЧТОБЫ ЗАКРЫТЬ</div>
+</div>
+
+<!-- ========================================
+     JAVASCRIPT
+     ======================================== -->
+<script src="js/main.js"></script>
+</body>
+</html>

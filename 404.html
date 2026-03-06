@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>404 — Страница не найдена</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Press Start 2P', monospace;
+  background: #000;
+  color: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  -webkit-font-smoothing: none;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+  pointer-events: none;
+  z-index: 10000;
+}
+.code {
+  font-size: clamp(48px, 12vw, 96px);
+  color: #f83800;
+  text-shadow: 4px 4px 0 #a00;
+  margin-bottom: 24px;
+}
+.msg {
+  font-size: clamp(10px, 2.5vw, 16px);
+  line-height: 2;
+  margin-bottom: 40px;
+  color: #fc9838;
+}
+.home-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(10px, 2vw, 14px);
+  color: #000;
+  background: #f8b800;
+  border: none;
+  padding: 16px 32px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 #a85000;
+  transition: transform 0.1s;
+}
+.home-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #a85000;
+}
+.blink {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+</style>
+</head>
+<body>
+  <div class="code">404</div>
+  <div class="msg">GAME OVER<br>УРОВЕНЬ НЕ НАЙДЕН<span class="blink">_</span></div>
+  <a href="https://danilastrelnikov.ru" class="home-btn">НА ГЛАВНУЮ</a>
+</body>
+</html>
