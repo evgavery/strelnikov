@@ -638,7 +638,7 @@ body::after {
 }
 
 .tv-frame {
-    width: clamp(260px, 35vw, 380px);
+    width: clamp(260px, 35vw, 450px);
     background: #383838;
     border: 8px solid #505050;
     box-shadow: inset 0 0 0 4px #282828, 8px 8px 0 rgba(0, 0, 0, 0.3);
@@ -986,8 +986,8 @@ body::after {
    ACHIEVEMENTS — QUESTION BLOCKS
    ============================================ */
 .achievements {
-    background: #000;
-    padding: 80px 24px;
+    background: #09241b;
+    padding: 80px 24px 120px;
     position: relative;
 }
 
@@ -1389,7 +1389,7 @@ body::after {
    ============================================ */
 .clients-section {
     background: #000;
-    padding: 60px 24px 80px;
+    padding: 60px 24px 100px;
     position: relative;
     overflow: hidden;
 }
@@ -1636,6 +1636,34 @@ body::after {
     text-align: left;
     max-width: 540px;
     margin: 0 auto;
+    position: relative;
+}
+
+.req-copy-btn {
+    display: block;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    color: rgba(252, 252, 252, 0.5);
+    font-family: var(--font);
+    font-size: 7px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.req-copy-btn:hover {
+    border-color: var(--coin-gold);
+    color: var(--coin-gold);
+    background: rgba(248, 184, 0, 0.08);
+}
+
+.req-copy-btn.copied {
+    border-color: var(--pipe-green);
+    color: var(--pipe-light);
+    background: rgba(0, 168, 0, 0.1);
 }
 
 .requisites-block p {
@@ -2128,19 +2156,20 @@ body::after {
         align-items: center;
         text-align: center;
         max-width: none;
-    }
-
-    .hero-left .sf-stats {
-        margin: 0 auto 32px;
+        order: 2;
     }
 
     .hero-right {
         width: 100%;
+        order: 1;
+    }
+
+    .hero-left .sf-stats {
+        margin: 0 auto 24px;
     }
 
     .tv-frame {
-        width: 90%;
-        max-width: 320px;
+        max-width: 450px;
         margin: 0 auto;
     }
 
@@ -2186,6 +2215,10 @@ body::after {
         gap: 28px 16px;
     }
 
+    .qblock-wrap.unlocked .qblock-label {
+        font-size: 9px;
+    }
+
     .files-section {
         padding: 60px 16px 20px;
     }
@@ -2203,7 +2236,7 @@ body::after {
     }
 
     .clients-section {
-        padding: 0 16px 60px 16px;
+        padding: 40px 16px 60px 16px;
     }
 
     .clients-list {

@@ -296,7 +296,7 @@
     <div style="text-align:center; padding: 32px 0 0;">
         <span class="world-label-plain">WORLD 2-1</span>
     </div>
-    <div class="deco-coins-row" style="padding:24px 0 0;">
+    <div class="deco-coins-row" style="padding:60px 0 0;">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="7">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="8">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="9">
@@ -379,37 +379,32 @@
                     class="client-name">Russian Wedding Group</span></div>
             <div class="client-row"><span class="client-num">0040</span><span class="client-name">Сахарок</span></div>
         </div>
+
+        <!-- Coins after clients -->
+        <div class="deco-coins-row" style="padding:60px 0 0;">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="57">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="58">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="59">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="60">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="61">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="62">
+        </div>
+        <div class="deco-coins-row" style="padding:16px 0 0;">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="63">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="64">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="65">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="66">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="67">
+            <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="68">
+        </div>
     </div>
 </section>
-
-<!-- Coins after clients -->
-<div style="background:#000; padding-bottom:48px;">
-    <div class="deco-coins-row" style="padding:24px 0 0;">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="57">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="58">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="59">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="60">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="61">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="62">
-    </div>
-    <div class="deco-coins-row" style="padding:16px 0 0;">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="63">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="64">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="65">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="66">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="67">
-        <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="68">
-    </div>
-</div>
 
 <!-- ========================================
      CONTACT SECTION
      ======================================== -->
 <section class="contact-section" id="contact" data-world="FINAL">
     <div class="container contact-inner">
-        <div class="world-card-inline reveal">
-            <div class="world-card-name">FINAL LEVEL</div>
-        </div>
         <div class="contact-title reveal">Контакты</div>
 
         <div class="contact-info reveal">
@@ -437,7 +432,10 @@
         <!-- Requisites -->
         <div class="requisites reveal">
             <div class="requisites-title">Реквизиты</div>
-            <div class="requisites-block">
+            <div class="requisites-block" id="requisitesBlock">
+                <button class="req-copy-btn" id="reqCopyBtn" title="Скопировать реквизиты">
+                    <span class="req-copy-text" id="reqCopyText">Скопировать</span>
+                </button>
                 <p class="req-name">ИП СТРЕЛЬНИКОВ ДАНИЛА АЛЕКСАНДРОВИЧ</p>
                 <p>
                     Юридический адрес: 656054, Россия, Алтайский край, г. Барнаул, ул. Антона Петрова, д. 228, кв.
@@ -462,7 +460,7 @@
      ======================================== -->
 <section class="game-over" id="gameover">
     <div class="game-over-title reveal">GAME OVER</div>
-    <a href="#hero" class="game-over-restart">CONTINUE? 9...8...7...</a>
+    <a href="#" class="game-over-restart" id="restartBtn">CONTINUE? 9...8...7...</a>
 
     <div class="deco-coins-row" style="padding:24px 0 0;">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="47">

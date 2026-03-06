@@ -234,6 +234,26 @@ document.addEventListener('keydown', function(e) {
   });
 })();
 
+/* ---- COPY REQUISITES ---- */
+document.getElementById('reqCopyBtn').addEventListener('click', function() {
+  var block = document.getElementById('requisitesBlock');
+  var ps = block.querySelectorAll('p');
+  var text = '';
+  ps.forEach(function(p) {
+    text += p.textContent.trim() + '\n';
+  });
+  navigator.clipboard.writeText(text.trim()).then(function() {
+    var btn = document.getElementById('reqCopyBtn');
+    var textEl = document.getElementById('reqCopyText');
+    btn.classList.add('copied');
+    textEl.textContent = 'Скопировано';
+    setTimeout(function() {
+      btn.classList.remove('copied');
+      textEl.textContent = 'Скопировать';
+    }, 2000);
+  });
+});
+
 /* ---- FORMS ---- */
 function submitContactForm() {
   var phone = document.getElementById('contactPhone');
@@ -483,3 +503,10 @@ document.querySelectorAll('.qblock').forEach(function(block) {
 
   if (sceneEl) aboutObserver.observe(sceneEl);
 })();
+
+/* ---- RESTART (CONTINUE) BUTTON ---- */
+document.getElementById('restartBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo(0, 0);
+  location.reload();
+});
