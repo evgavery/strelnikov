@@ -371,6 +371,7 @@ body::after {
 
 .game-over-character img {
     width: clamp(90px, 15vw, 120px);
+    height: auto;
     image-rendering: pixelated;
 }
 
@@ -832,6 +833,7 @@ body::after {
 
 .about-character img {
     width: clamp(80px, 14vw, 120px);
+    height: auto;
     image-rendering: pixelated;
     display: block;
 }
