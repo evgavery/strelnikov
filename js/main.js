@@ -279,17 +279,6 @@ document.getElementById('reqCopyBtn').addEventListener('click', function() {
 })();
 
 /* ---- FORMS ---- */
-function submitContactForm() {
-  var phone = document.getElementById('contactPhone');
-  var consent = document.getElementById('contactConsent');
-  if (!phone.value || !consent.checked) {
-    if (!phone.value) phone.style.borderColor = 'var(--fire-red)';
-    return;
-  }
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('contactSuccess').classList.add('active');
-}
-
 function submitPrizeForm() {
   var email = document.getElementById('prizeEmail');
   if (!email.value || !email.value.includes('@')) {
@@ -363,13 +352,13 @@ document.querySelectorAll('.qblock').forEach(function(block) {
   var dialogues = [
     'Привет! Я <span class="hl">Данила Стрельников</span>.',
     '<span class="hl">ИП Стрельников.</span> Знаю свои реквизиты наизусть, гостей-то ваших запомню.',
-    'Сын кандидата биологических наук и режиссера массовых мероприятий.',
+    'Сын кандидата биологических наук и режиссёра массовых мероприятий.',
     'Больше <span class="hl">артист</span>, чем ведущий. Больше <span class="hl">человек</span>, чем артист.',
-    'Жанр: <span class="hl">легкое веселое человечное.</span>',
+    'Жанр: <span class="hl">лёгкое весёлое человечное.</span>',
     'Пою в полупопулярной группе <span class="hl">«ДИСКОПРОВОКАЦИЯ»</span>.',
     'Открываю франшизы квиза и помогаю зарабатывать другим.',
     'Тщательно скрываю, что я хедлайнер вечера.',
-    'Вел свадьбу во Флоренции, проводил в Турции, мерил жизнь унциями.',
+    'Вёл свадьбу во Флоренции, проводил в Турции, мерил жизнь унциями.',
     '5 лет организовываю авторские туры на <span class="hl">Алтай</span>. Вожу бывших заказчиков, а впоследствии — друзей.'
   ];
 
