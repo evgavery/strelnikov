@@ -29,16 +29,6 @@
 }
 
 /* ============================================
-   CONTAINER
-   ============================================ */
-.container {
-    width: 100%;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* ============================================
    RESET & BASE
    ============================================ */
 *, *::before, *::after {
@@ -81,6 +71,16 @@ button {
     color: inherit;
 }
 
+/* ============================================
+   CONTAINER
+   ============================================ */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Scanline CRT overlay */
 body::after {
     content: '';
@@ -95,6 +95,61 @@ body::after {
     );
     pointer-events: none;
     z-index: 9999;
+}
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   LOADING SCREEN
+   ============================================ */
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-text {
+    font-size: 14px;
+    color: var(--text-white);
+    margin-bottom: 24px;
+    letter-spacing: 3px;
+}
+
+.loading-bar-bg {
+    width: 240px;
+    height: 20px;
+    border: 4px solid var(--text-white);
+    background: #000;
+}
+
+.loading-bar-fill {
+    height: 100%;
+    background: var(--pipe-green);
+    width: 0%;
+    transition: width 0.1s;
 }
 
 /* ============================================
@@ -174,306 +229,6 @@ body::after {
     }
     50% {
         transform: scaleX(0.2);
-    }
-}
-
-/* ============================================
-   SCROLL REVEAL
-   ============================================ */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ============================================
-   PIPE + PIRANHA DECORATIONS
-   ============================================ */
-.pipe-deco {
-    position: relative;
-    display: inline-block;
-}
-
-.pipe-deco .pipe-img {
-    width: 64px;
-    height: auto;
-    image-rendering: pixelated;
-    position: relative;
-    z-index: 3;
-}
-
-/* Standing pipes (game-over): flip so wide lip is at top */
-.game-over-pipes .pipe-img {
-    transform: scaleY(-1);
-}
-
-/* Hanging pipes (transitions): piranha flipped 180deg, comes out from bottom */
-.pipe-deco .piranha-img {
-    width: 32px;
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%) rotate(180deg) translateY(20px);
-    image-rendering: pixelated;
-    z-index: 1;
-    animation: piranhaHang 8s ease-in-out infinite;
-}
-
-@keyframes piranhaHang {
-    0%, 18%, 100% {
-        transform: translateX(-50%) rotate(180deg) translateY(20px);
-    }
-    25%, 35% {
-        transform: translateX(-50%) rotate(180deg) translateY(-35px);
-    }
-    42%, 100% {
-        transform: translateX(-50%) rotate(180deg) translateY(20px);
-    }
-}
-
-/* Standing pipes (game-over): piranha right-side up, comes out from top */
-.game-over-pipes .piranha-img {
-    top: -8px;
-    bottom: auto;
-    transform: translateX(-50%) translateY(20px);
-    animation: piranhaStand 8s ease-in-out infinite;
-}
-
-@keyframes piranhaStand {
-    0%, 18%, 100% {
-        transform: translateX(-50%) translateY(20px);
-    }
-    25%, 35% {
-        transform: translateX(-50%) translateY(-35px);
-    }
-    42%, 100% {
-        transform: translateX(-50%) translateY(20px);
-    }
-}
-
-/* ============================================
-   DECORATIVE MARIO COINS (non-collectible)
-   ============================================ */
-.deco-coins-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(24px, 5vw, 48px);
-    padding: 8px 0;
-}
-
-.deco-coin {
-    width: clamp(28px, 4vw, 40px);
-    height: auto;
-    image-rendering: pixelated;
-    animation: decoCoinBob 1.5s ease-in-out infinite;
-}
-
-.deco-coin:nth-child(2) {
-    animation-delay: -0.25s;
-}
-
-.deco-coin:nth-child(3) {
-    animation-delay: -0.5s;
-}
-
-.deco-coin:nth-child(4) {
-    animation-delay: -0.75s;
-}
-
-.deco-coin:nth-child(5) {
-    animation-delay: -1.0s;
-}
-
-.deco-coin:nth-child(6) {
-    animation-delay: -0.15s;
-}
-
-.deco-coin:nth-child(7) {
-    animation-delay: -0.4s;
-}
-
-.deco-coin:nth-child(8) {
-    animation-delay: -0.65s;
-}
-
-.deco-coin:nth-child(9) {
-    animation-delay: -0.9s;
-}
-
-.deco-coin:nth-child(10) {
-    animation-delay: -1.15s;
-}
-
-.deco-coin:nth-child(11) {
-    animation-delay: -0.35s;
-}
-
-.deco-coin:nth-child(12) {
-    animation-delay: -0.6s;
-}
-
-@keyframes decoCoinBob {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-/* ============================================
-   GAME OVER SECTION
-   ============================================ */
-.game-over {
-    position: relative;
-    padding: 80px 24px 0;
-    text-align: center;
-    overflow: hidden;
-    min-height: 600px;
-}
-
-.game-over-title {
-    font-size: clamp(28px, 7vw, 64px);
-    color: var(--coin-gold);
-    text-shadow: 4px 4px 0 #000,
-    0 0 20px rgba(248, 184, 0, 0.35),
-    0 0 60px rgba(248, 184, 0, 0.12);
-    margin-bottom: 48px;
-    letter-spacing: 6px;
-    position: relative;
-    z-index: 5;
-    animation: gameOverPulse 3s ease-in-out infinite;
-}
-
-@keyframes gameOverPulse {
-    0%, 100% {
-        text-shadow: 4px 4px 0 #000, 0 0 20px rgba(248, 184, 0, 0.35), 0 0 60px rgba(248, 184, 0, 0.12);
-    }
-    50% {
-        text-shadow: 4px 4px 0 #000, 0 0 30px rgba(248, 184, 0, 0.5), 0 0 80px rgba(248, 184, 0, 0.2);
-    }
-}
-
-.game-over-character {
-    position: relative;
-    display: inline-block;
-    z-index: 6;
-    margin-bottom: -4px;
-    vertical-align: bottom;
-}
-
-.game-over-character img {
-    width: clamp(90px, 15vw, 120px);
-    height: auto;
-    image-rendering: pixelated;
-}
-
-.speech-bubble {
-    display: inline-block;
-    background: var(--text-white);
-    color: #000;
-    font-size: clamp(7px, 1.1vw, 10px);
-    padding: 14px 18px;
-    line-height: 2;
-    max-width: 320px;
-    text-align: left;
-    border: 3px solid #000;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 5;
-}
-
-.speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid var(--text-white);
-}
-
-.speech-bubble::before {
-    content: '';
-    position: absolute;
-    bottom: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-top: 12px solid #000;
-}
-
-.game-over-restart {
-    display: inline-block;
-    font-size: clamp(10px, 1.5vw, 14px);
-    color: var(--coin-gold);
-    margin: 16px 0 32px;
-    animation: blink 1.5s step-start infinite;
-    cursor: pointer;
-}
-
-.game-over-restart:hover {
-    animation: none;
-    color: var(--text-white);
-}
-
-.game-over-bottom {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 3%;
-    margin-top: 60px;
-}
-
-.game-over-ground-bar {
-    width: calc(100% + 48px);
-    margin-left: -24px;
-    height: 64px;
-    background: url('../images/ground.svg') repeat-x bottom;
-    background-size: auto 64px;
-    image-rendering: pixelated;
-}
-
-.game-over-pipes {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 5%;
-    z-index: 3;
-    pointer-events: none;
-}
-
-@media (max-width: 768px) {
-    .game-over-ground-bar {
-        height: 48px;
-        background-size: auto 48px;
-    }
-
-    .game-over-character img {
-        width: clamp(80px, 20vw, 120px);
-    }
-
-    .deco-coin {
-        width: clamp(20px, 4vw, 32px);
     }
 }
 
@@ -1294,6 +1049,142 @@ body::after {
 .qblock-wrap:nth-child(8) { transition-delay: 0.49s; }
 
 /* ============================================
+   PIPE + PIRANHA DECORATIONS
+   ============================================ */
+.pipe-deco {
+    position: relative;
+    display: inline-block;
+}
+
+.pipe-deco .pipe-img {
+    width: 64px;
+    height: auto;
+    image-rendering: pixelated;
+    position: relative;
+    z-index: 3;
+}
+
+/* Standing pipes (game-over): flip so wide lip is at top */
+.game-over-pipes .pipe-img {
+    transform: scaleY(-1);
+}
+
+/* Hanging pipes (transitions): piranha flipped 180deg, comes out from bottom */
+.pipe-deco .piranha-img {
+    width: 32px;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg) translateY(20px);
+    image-rendering: pixelated;
+    z-index: 1;
+    animation: piranhaHang 8s ease-in-out infinite;
+}
+
+@keyframes piranhaHang {
+    0%, 18%, 100% {
+        transform: translateX(-50%) rotate(180deg) translateY(20px);
+    }
+    25%, 35% {
+        transform: translateX(-50%) rotate(180deg) translateY(-35px);
+    }
+    42%, 100% {
+        transform: translateX(-50%) rotate(180deg) translateY(20px);
+    }
+}
+
+/* Standing pipes (game-over): piranha right-side up, comes out from top */
+.game-over-pipes .piranha-img {
+    top: -8px;
+    bottom: auto;
+    transform: translateX(-50%) translateY(20px);
+    animation: piranhaStand 8s ease-in-out infinite;
+}
+
+@keyframes piranhaStand {
+    0%, 18%, 100% {
+        transform: translateX(-50%) translateY(20px);
+    }
+    25%, 35% {
+        transform: translateX(-50%) translateY(-35px);
+    }
+    42%, 100% {
+        transform: translateX(-50%) translateY(20px);
+    }
+}
+
+/* ============================================
+   DECORATIVE MARIO COINS (non-collectible)
+   ============================================ */
+.deco-coins-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(24px, 5vw, 48px);
+    padding: 8px 0;
+}
+
+.deco-coin {
+    width: clamp(28px, 4vw, 40px);
+    height: auto;
+    image-rendering: pixelated;
+    animation: decoCoinBob 1.5s ease-in-out infinite;
+}
+
+.deco-coin:nth-child(2) {
+    animation-delay: -0.25s;
+}
+
+.deco-coin:nth-child(3) {
+    animation-delay: -0.5s;
+}
+
+.deco-coin:nth-child(4) {
+    animation-delay: -0.75s;
+}
+
+.deco-coin:nth-child(5) {
+    animation-delay: -1.0s;
+}
+
+.deco-coin:nth-child(6) {
+    animation-delay: -0.15s;
+}
+
+.deco-coin:nth-child(7) {
+    animation-delay: -0.4s;
+}
+
+.deco-coin:nth-child(8) {
+    animation-delay: -0.65s;
+}
+
+.deco-coin:nth-child(9) {
+    animation-delay: -0.9s;
+}
+
+.deco-coin:nth-child(10) {
+    animation-delay: -1.15s;
+}
+
+.deco-coin:nth-child(11) {
+    animation-delay: -0.35s;
+}
+
+.deco-coin:nth-child(12) {
+    animation-delay: -0.6s;
+}
+
+@keyframes decoCoinBob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* ============================================
    FILES SECTION
    ============================================ */
 .files-section {
@@ -1726,6 +1617,141 @@ body::after {
 }
 
 /* ============================================
+   GAME OVER SECTION
+   ============================================ */
+.game-over {
+    position: relative;
+    padding: 80px 24px 0;
+    text-align: center;
+    overflow: hidden;
+    min-height: 600px;
+}
+
+.game-over-title {
+    font-size: clamp(28px, 7vw, 64px);
+    color: var(--coin-gold);
+    text-shadow: 4px 4px 0 #000,
+    0 0 20px rgba(248, 184, 0, 0.35),
+    0 0 60px rgba(248, 184, 0, 0.12);
+    margin-bottom: 48px;
+    letter-spacing: 6px;
+    position: relative;
+    z-index: 5;
+    animation: gameOverPulse 3s ease-in-out infinite;
+}
+
+@keyframes gameOverPulse {
+    0%, 100% {
+        text-shadow: 4px 4px 0 #000, 0 0 20px rgba(248, 184, 0, 0.35), 0 0 60px rgba(248, 184, 0, 0.12);
+    }
+    50% {
+        text-shadow: 4px 4px 0 #000, 0 0 30px rgba(248, 184, 0, 0.5), 0 0 80px rgba(248, 184, 0, 0.2);
+    }
+}
+
+.game-over-character {
+    position: relative;
+    display: inline-block;
+    z-index: 6;
+    margin-bottom: -4px;
+    vertical-align: bottom;
+}
+
+.game-over-character img {
+    width: clamp(90px, 15vw, 120px);
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.speech-bubble {
+    display: inline-block;
+    background: var(--text-white);
+    color: #000;
+    font-size: clamp(7px, 1.1vw, 10px);
+    padding: 14px 18px;
+    line-height: 2;
+    max-width: 320px;
+    text-align: left;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 5;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--text-white);
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #000;
+}
+
+.game-over-restart {
+    display: inline-block;
+    font-size: clamp(10px, 1.5vw, 14px);
+    color: var(--coin-gold);
+    margin: 16px 0 32px;
+    animation: blink 1.5s step-start infinite;
+    cursor: pointer;
+}
+
+.game-over-restart:hover {
+    animation: none;
+    color: var(--text-white);
+}
+
+.game-over-bottom {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 3%;
+    margin-top: 60px;
+}
+
+.game-over-ground-bar {
+    width: calc(100% + 48px);
+    margin-left: -24px;
+    height: 64px;
+    background: url('../images/ground.svg') repeat-x bottom;
+    background-size: auto 64px;
+    image-rendering: pixelated;
+}
+
+.game-over-pipes {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 5%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 .footer {
@@ -2111,47 +2137,6 @@ body::after {
     animation: blink 1.5s step-start infinite;
 }
 
-/* ============================================
-   LOADING SCREEN
-   ============================================ */
-.loading-screen {
-    position: fixed;
-    inset: 0;
-    background: #000;
-    z-index: 10000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.5s;
-}
-
-.loading-screen.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.loading-text {
-    font-size: 14px;
-    color: var(--text-white);
-    margin-bottom: 24px;
-    letter-spacing: 3px;
-}
-
-.loading-bar-bg {
-    width: 240px;
-    height: 20px;
-    border: 4px solid var(--text-white);
-    background: #000;
-}
-
-.loading-bar-fill {
-    height: 100%;
-    background: var(--pipe-green);
-    width: 0%;
-    transition: width 0.1s;
-}
-
 /* Form success */
 .form-success {
     display: none;
@@ -2179,6 +2164,19 @@ body::after {
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
+    .game-over-ground-bar {
+        height: 48px;
+        background-size: auto 48px;
+    }
+
+    .game-over-character img {
+        width: clamp(80px, 20vw, 120px);
+    }
+
+    .deco-coin {
+        width: clamp(20px, 4vw, 32px);
+    }
+
     .hud {
         padding: 10px 12px;
         font-size: 8px;
