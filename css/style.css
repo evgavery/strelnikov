@@ -614,13 +614,6 @@ body::after {
 }
 
 
-.sf-stat-val {
-    font-size: clamp(6px, 0.9vw, 8px);
-    color: rgba(252, 252, 252, 0.5);
-    min-width: 28px;
-    text-align: left;
-}
-
 @keyframes sfBarFill {
     from {
         width: 0%;
@@ -1339,13 +1332,6 @@ body::after {
     z-index: 2;
 }
 
-.files-title {
-    font-size: clamp(18px, 3.5vw, 32px);
-    color: var(--text-white);
-    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
-    margin-bottom: 48px;
-}
-
 .files-grid {
     display: flex;
     justify-content: center;
@@ -2062,12 +2048,6 @@ body::after {
     margin-bottom: 32px;
 }
 
-.bsod-char {
-    width: clamp(80px, 20vw, 160px);
-    margin-bottom: 24px;
-    image-rendering: pixelated;
-}
-
 .bsod-hint {
     font-size: 9px;
     color: rgba(252, 252, 252, 0.5);
@@ -2113,31 +2093,6 @@ body::after {
     background: var(--pipe-green);
     width: 0%;
     transition: width 0.1s;
-}
-
-/* World transition cards */
-.world-card {
-    text-align: center;
-    padding: 32px 24px;
-    background: #000;
-}
-
-.world-card-name {
-    font-size: clamp(11px, 1.8vw, 16px);
-    color: rgba(252, 252, 252, 0.7);
-    letter-spacing: 3px;
-}
-
-/* Inline world card (inside section) */
-.world-card-inline {
-    text-align: center;
-    margin-bottom: 16px;
-}
-
-.world-card-inline .world-card-name {
-    font-size: clamp(9px, 1.4vw, 13px);
-    color: rgba(252, 252, 252, 0.25);
-    letter-spacing: 3px;
 }
 
 /* Form success */
