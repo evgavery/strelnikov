@@ -85,6 +85,10 @@ document.addEventListener('keydown', function(e) {
     document.querySelectorAll('.modal-overlay.active').forEach(function(m) { closeModal(m.id); });
     closeBSOD();
   }
+  if (document.getElementById('galleryModal').classList.contains('active')) {
+    if (e.key === 'ArrowLeft') galleryMove(-1);
+    if (e.key === 'ArrowRight') galleryMove(1);
+  }
 });
 
 /* ---- TV / VIDEO ---- */
@@ -203,7 +207,7 @@ document.getElementById('heartBtn').addEventListener('click', function() {
 
 /* ---- GALLERY ---- */
 var galleryIndex = 0;
-var galleryTotal = 15;
+var galleryTotal = document.querySelectorAll('#galleryTrack .gallery-slide').length;
 
 function galleryMove(dir) {
   galleryIndex = (galleryIndex + dir + galleryTotal) % galleryTotal;
@@ -213,11 +217,7 @@ function galleryMove(dir) {
     (galleryIndex + 1) + ' / ' + galleryTotal;
 }
 
-document.addEventListener('keydown', function(e) {
-  if (!document.getElementById('galleryModal').classList.contains('active')) return;
-  if (e.key === 'ArrowLeft') galleryMove(-1);
-  if (e.key === 'ArrowRight') galleryMove(1);
-});
+
 
 (function() {
   var track = document.getElementById('galleryTrack');
