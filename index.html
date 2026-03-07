@@ -104,7 +104,7 @@
 </section>
 
 <!-- World 1-2 label -->
-<div style="background:#000; text-align:center; padding: 32px 0 0;">
+<div class="section-divider section-divider--centered">
     <span class="world-label-plain">WORLD 1-2</span>
 </div>
 
@@ -177,7 +177,7 @@
 </section>
 
 <!-- Ground separator before Achievements -->
-<div style="background:#000;">
+<div class="section-divider">
     <div class="ground-row ground-row-about"></div>
 </div>
 
@@ -303,12 +303,12 @@
 </section>
 
 <!-- World 2-1 + coins before clients -->
-<div style="background:#000;">
+<div class="section-divider">
     <div class="ground-row"></div>
-    <div style="text-align:center; padding: 32px 0 0;">
+    <div class="section-divider--centered">
         <span class="world-label-plain">WORLD 2-1</span>
     </div>
-    <div class="deco-coins-row" style="padding:60px 0 0;">
+    <div class="deco-coins-row coins-divider">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="7">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="8">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="9">
@@ -316,7 +316,7 @@
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="11">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="12">
     </div>
-    <div class="deco-coins-row" style="padding:16px 0 0;">
+    <div class="deco-coins-row coins-divider--tight">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="41">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="42">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="43">
@@ -393,7 +393,7 @@
         </div>
 
         <!-- Coins after clients -->
-        <div class="deco-coins-row" style="padding:60px 0 0;">
+        <div class="deco-coins-row coins-divider">
             <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="57">
             <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="58">
             <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="59">
@@ -401,7 +401,7 @@
             <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="61">
             <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="62">
         </div>
-        <div class="deco-coins-row" style="padding:16px 0 0;">
+        <div class="deco-coins-row coins-divider--tight">
             <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="63">
             <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="64">
             <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="65">
@@ -473,14 +473,14 @@
     <div class="game-over-title reveal">GAME OVER</div>
     <a href="#" class="game-over-restart" id="restartBtn">CONTINUE? 9...8...7...</a>
 
-    <div class="deco-coins-row" style="padding:24px 0 0;">
+    <div class="deco-coins-row coins-divider--small">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="47">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="48">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="49">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="50">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="51">
     </div>
-    <div class="deco-coins-row" style="padding:16px 0 0;">
+    <div class="deco-coins-row coins-divider--tight">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="52">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="53">
         <img class="deco-coin collectible" src="images/coin.svg" alt="" data-coin="54">
@@ -522,9 +522,9 @@
 
 <!-- Video (Kinescope) -->
 <div class="modal-overlay" id="videoModal">
-    <div class="modal-box" style="width:90vw; max-width:860px;">
+    <div class="modal-box modal-box--video">
         <button class="modal-close" onclick="closeModal('videoModal')">&times;</button>
-        <div class="modal-content" style="padding:8px;">
+        <div class="modal-content modal-content--compact">
             <div class="video-container" id="videoContainer"></div>
         </div>
     </div>
@@ -532,9 +532,9 @@
 
 <!-- Prikol (VK Video) -->
 <div class="modal-overlay" id="prikolModal">
-    <div class="modal-box" style="width:90vw; max-width:860px;">
+    <div class="modal-box modal-box--video">
         <button class="modal-close" onclick="closeModal('prikolModal')">&times;</button>
-        <div class="modal-content" style="padding:8px;">
+        <div class="modal-content modal-content--compact">
             <div class="modal-title">приколы 2009</div>
             <div class="video-container" id="prikolContainer"></div>
         </div>
@@ -543,7 +543,7 @@
 
 <!-- Gallery -->
 <div class="modal-overlay gallery-modal" id="galleryModal">
-    <div class="modal-box" style="width:90vw; max-width:1000px;">
+    <div class="modal-box modal-box--gallery">
         <button class="modal-close" onclick="closeModal('galleryModal')">&times;</button>
         <div class="modal-content" style="padding:8px 8px 0;">
             <div class="gallery-viewport">
@@ -581,11 +581,8 @@
             <div class="prize-title">Ура! Вы собрали<br>все монетки и выиграли<br>3% скидку на мероприятие!</div>
             <div class="prize-desc">Напишите свою почту<br>и я вышлю вам сертификат</div>
             <form class="prize-form" id="prizeForm" onsubmit="return false;">
-                <input type="email" class="pixel-input" placeholder="Ваш Email" id="prizeEmail" required
-                       style="max-width:300px; margin:0 auto 16px;">
-                <br>
-                <button type="submit" class="pixel-btn" onclick="submitPrizeForm()"
-                        style="background:var(--coin-gold); border-color:var(--coin-dark); color:#000;">Отправить
+                <input type="email" class="pixel-input prize-email-input" placeholder="Ваш Email" id="prizeEmail" required>
+                <button type="submit" class="pixel-btn prize-submit-btn" onclick="submitPrizeForm()">Отправить
                 </button>
             </form>
             <div class="form-success" id="prizeSuccess">
@@ -620,8 +617,8 @@
 </div>
 
 <!-- Credits link -->
-<div style="text-align:center; padding:12px 0 24px; font-family:'Press Start 2P',monospace;">
-    <a href="credits.html" style="color:#404040; font-size:7px; text-decoration:none;">Developed by Евгений Аверьянов</a>
+<div class="credits-link-wrap">
+    <a href="credits.html" class="credits-link">Developed by Евгений Аверьянов</a>
 </div>
 
 <!-- ========================================

@@ -1409,6 +1409,28 @@ body::after {
     z-index: 2;
 }
 
+/* Section dividers */
+.section-divider {
+    background: #000;
+}
+
+.section-divider--centered {
+    text-align: center;
+    padding: 32px 0 0;
+}
+
+.coins-divider {
+    padding: 60px 0 0;
+}
+
+.coins-divider--small {
+    padding: 24px 0 0;
+}
+
+.coins-divider--tight {
+    padding: 16px 0 0;
+}
+
 /* ============================================
    CLIENTS SECTION — NES GAME SELECT STYLE
    ============================================ */
@@ -1723,6 +1745,18 @@ body::after {
     color: var(--coin-gold);
 }
 
+/* Credits */
+.credits-link-wrap {
+    text-align: center;
+    padding: 12px 0 24px;
+}
+
+.credits-link {
+    color: #404040;
+    font-size: 7px;
+    text-decoration: none;
+}
+
 /* ============================================
    COLLECTIBLE COINS (World transitions)
    ============================================ */
@@ -1856,6 +1890,20 @@ body::after {
     padding-right: 40px;
 }
 
+.modal-box--video {
+    width: 90vw;
+    max-width: 860px;
+}
+
+.modal-box--gallery {
+    width: 90vw;
+    max-width: 1000px;
+}
+
+.modal-content--compact {
+    padding: 8px;
+}
+
 /* Video */
 .video-container {
     position: relative;
@@ -1967,6 +2015,17 @@ body::after {
     color: rgba(252, 252, 252, 0.6);
     margin-bottom: 24px;
     line-height: 1.8;
+}
+
+.prize-email-input {
+    max-width: 300px;
+    margin: 0 auto 16px;
+}
+
+.prize-submit-btn {
+    background: var(--coin-gold);
+    border-color: var(--coin-dark);
+    color: #000;
 }
 
 /* Quote (love) modal */
