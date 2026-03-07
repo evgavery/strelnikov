@@ -55,6 +55,7 @@ function openModal(id) {
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
 
+  if (id === 'galleryModal') document.body.classList.add('no-scanlines');
   if (id === 'videoModal') {
     document.getElementById('videoContainer').innerHTML =
       '<iframe src="https://kinescope.io/embed/vpCPLC4yMqey4Yn7NR2cRg" allow="autoplay; fullscreen" allowfullscreen></iframe>';
@@ -70,6 +71,7 @@ function closeModal(id) {
   if (!modal) return;
   modal.classList.remove('active');
   document.body.style.overflow = '';
+  if (id === 'galleryModal') document.body.classList.remove('no-scanlines');
   if (id === 'videoModal') document.getElementById('videoContainer').innerHTML = '';
   if (id === 'prikolModal') document.getElementById('prikolContainer').innerHTML = '';
 }
@@ -238,10 +240,14 @@ function galleryMove(dir) {
 document.getElementById('reqCopyBtn').addEventListener('click', function() {
   var block = document.getElementById('requisitesBlock');
   var ps = block.querySelectorAll('p');
-  var text = '';
+  var lines = [];
   ps.forEach(function(p) {
-    text += p.textContent.trim() + '\n';
+    p.innerHTML.split(/<br\s*\/?>/).forEach(function(part) {
+      var line = part.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
+      if (line) lines.push(line);
+    });
   });
+  var text = lines.join('\n');
   navigator.clipboard.writeText(text.trim()).then(function() {
     var btn = document.getElementById('reqCopyBtn');
     var textEl = document.getElementById('reqCopyText');

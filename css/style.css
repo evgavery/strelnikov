@@ -95,6 +95,10 @@ body::after {
     );
     pointer-events: none;
     z-index: 9999;
+    transition: opacity 0.3s;
+}
+body.no-scanlines::after {
+    opacity: 0;
 }
 
 /* ============================================
@@ -1778,8 +1782,8 @@ body::after {
 }
 
 .credits-link {
-    color: #404040;
-    font-size: 7px;
+    color: var(--coin-gold);
+    font-size: 10px;
     text-decoration: none;
 }
 
