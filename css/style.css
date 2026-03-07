@@ -466,8 +466,6 @@ body::after {
     .game-over-ground-bar {
         height: 48px;
         background-size: auto 48px;
-        width: calc(100% + 48px);
-        margin-left: -24px;
     }
 
     .game-over-character img {
@@ -2290,7 +2288,6 @@ body::after {
     }
 
     .achievements-grid {
-        grid-template-columns: repeat(2, 1fr);
         gap: 20px 12px;
     }
 
