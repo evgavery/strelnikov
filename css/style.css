@@ -1330,9 +1330,66 @@ body.no-scanlines::after {
    CLIENTS SECTION — NES GAME SELECT STYLE
    ============================================ */
 .clients-section {
-    padding: 60px 24px 100px;
+    padding: 20px 24px 100px;
     position: relative;
     overflow: hidden;
+    background: url('../images/dendy_bg.webp') center center / cover no-repeat;
+    background-color: #1a0a2e;
+}
+
+/* Pixel-art seagulls */
+.seagull {
+    position: absolute;
+    width: 20px;
+    height: 8px;
+    top: 15%;
+    z-index: 0;
+    animation: seagullFly 12s linear infinite;
+    image-rendering: pixelated;
+}
+
+.seagull::before,
+.seagull::after {
+    content: '';
+    position: absolute;
+    background: #1a0a2e;
+    width: 8px;
+    height: 2px;
+    top: 0;
+}
+
+.seagull::before {
+    left: 0;
+    transform-origin: right center;
+    animation: seagullWingLeft 0.6s steps(2) infinite;
+}
+
+.seagull::after {
+    right: 0;
+    transform-origin: left center;
+    animation: seagullWingRight 0.6s steps(2) infinite;
+}
+
+.seagull--2 { top: 10%; animation-duration: 15s; animation-delay: -3s; }
+.seagull--2::before, .seagull--2::after { width: 6px; }
+.seagull--3 { top: 20%; animation-duration: 10s; animation-delay: -7s; }
+.seagull--4 { top: 8%; animation-duration: 18s; animation-delay: -5s; }
+.seagull--4::before, .seagull--4::after { width: 5px; }
+.seagull--5 { top: 25%; animation-duration: 14s; animation-delay: -10s; }
+
+@keyframes seagullFly {
+    from { left: -30px; }
+    to { left: calc(100% + 30px); }
+}
+
+@keyframes seagullWingLeft {
+    0%, 100% { transform: rotate(-25deg); }
+    50% { transform: rotate(15deg); }
+}
+
+@keyframes seagullWingRight {
+    0%, 100% { transform: rotate(25deg); }
+    50% { transform: rotate(-15deg); }
 }
 
 .clients-inner {
@@ -1343,17 +1400,19 @@ body.no-scanlines::after {
     font-size: clamp(18px, 3.5vw, 32px);
     color: var(--text-white);
     text-align: center;
+    margin-top: 40px;
     margin-bottom: 48px;
     text-shadow: 3px 3px 0 rgba(248, 184, 0, 0.3);
 }
 
 .clients-list {
     border: 4px solid #4040a0;
-    background: #0a0a2a;
+    background: rgba(10, 10, 42, 0.85);
     padding: clamp(16px, 3vw, 32px);
     max-height: 560px;
     overflow-y: auto;
     box-shadow: 0 0 0 4px #000, 0 0 60px rgba(64, 64, 160, 0.15);
+    backdrop-filter: blur(2px);
 }
 
 /* Custom scrollbar */
@@ -1423,7 +1482,7 @@ body.no-scanlines::after {
    ============================================ */
 .contact-section {
     background: linear-gradient(180deg, #0c0c1e 0%, #080818 100%);
-    padding: 80px 24px 40px;
+    padding: 80px 24px;
     position: relative;
 }
 
@@ -2287,7 +2346,7 @@ body.no-scanlines::after {
     }
 
     .clients-section {
-        padding: 40px 16px 60px 16px;
+        padding: 16px 16px 60px 16px;
     }
 
     .clients-list {
