@@ -2200,6 +2200,21 @@ body.no-scanlines::after {
     animation: blink 1.5s step-start infinite;
 }
 
+/* Form error */
+.form-error {
+    display: none;
+    text-align: center;
+    padding: 12px;
+    margin-top: 12px;
+    color: var(--fire-red);
+    font-size: 10px;
+    line-height: 2;
+}
+
+.form-error.active {
+    display: block;
+}
+
 /* Form success */
 .form-success {
     display: none;

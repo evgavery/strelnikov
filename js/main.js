@@ -279,14 +279,44 @@ document.getElementById('reqCopyBtn').addEventListener('click', function() {
 })();
 
 /* ---- FORMS ---- */
+var WORKER_URL = 'https://ТВОЙ-ВОРКЕР.workers.dev';
+
 function submitPrizeForm() {
   var email = document.getElementById('prizeEmail');
+  var btn = document.querySelector('.prize-submit-btn');
+  var errorEl = document.getElementById('prizeError');
+
+  errorEl.classList.remove('active');
+
   if (!email.value || !email.value.includes('@')) {
     email.style.borderColor = 'var(--fire-red)';
     return;
   }
-  document.getElementById('prizeForm').style.display = 'none';
-  document.getElementById('prizeSuccess').classList.add('active');
+
+  btn.disabled = true;
+  btn.textContent = 'Отправка...';
+
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email.value.trim() })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data.ok) {
+      document.getElementById('prizeForm').style.display = 'none';
+      document.getElementById('prizeSuccess').classList.add('active');
+    } else {
+      errorEl.classList.add('active');
+      btn.disabled = false;
+      btn.textContent = 'Отправить';
+    }
+  })
+  .catch(function() {
+    errorEl.classList.add('active');
+    btn.disabled = false;
+    btn.textContent = 'Отправить';
+  });
 }
 
 /* ---- SCROLL REVEAL ---- */
